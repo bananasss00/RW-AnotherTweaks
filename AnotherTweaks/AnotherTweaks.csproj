@@ -304,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnotherTweaks.cs" />
+    <Compile Include="DropOneWithControl.cs" />
     <Compile Include="MehniMiscModifications.cs" />
     <Compile Include="HiveAttackTargetDisabler.cs" />
     <Compile Include="ModActive.cs" />

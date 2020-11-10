@@ -29,13 +29,26 @@ namespace AnotherTweaks
 			modOptions.Begin(rect);
 			modOptions.Gap(20f);
 
+            var defColor = GUI.color;
+            GUI.color = Color.yellow;
+            modOptions.Label("   Vanilla tweaks");
+            GUI.color = defColor;
+
 		    modOptions.CheckboxLabeled("HiveAttackTarget".Translate(), ref HiveAttackTarget);
+            modOptions.Label("DropOneWithControl".Translate());
+
             if (!ModActive.MehniMiscModifications)
             {
+                GUI.color = Color.yellow;
+                modOptions.Label("   MehniMiscModifications tweaks");
+                GUI.color = defColor;
                 modOptions.CheckboxLabeled("BetterHostileReadouts".Translate(), ref BetterHostileReadouts);
             }
             if (!ModActive.TDEnhancmentPack)
             {
+                GUI.color = Color.yellow;
+                modOptions.Label("   TDEnhancmentPack tweaks");
+                GUI.color = defColor;
                 modOptions.CheckboxLabeled("SkillArrows".Translate(), ref SkillArrows);
                 modOptions.CheckboxLabeled("ResearchingArrow".Translate(), ref ResearchingArrow);
             }

@@ -47,6 +47,28 @@ namespace AnotherTweaks
                 Log.Message($"[AnotherTweaks] MehniMiscModifications tweaks initialized");
             }
 
+            // DropOneWithControl
+            {
+                var rw = AccessTools.Method("RimWorld.ITab_Pawn_Gear:InterfaceDrop");
+                var ce = AccessTools.Method("CombatExtended.ITab_Inventory:InterfaceDrop");
+                var patch = new HarmonyMethod(typeof(DropOneWithControl), nameof(DropOneWithControl.InterfaceDrop)) {priority = 999999};
+
+                if (ce != null)
+                {
+                    h.Patch(ce, prefix: patch);
+                    Log.Message($"[AnotherTweaks] DropOneWithControl Initialized CE version");
+                }
+                else if (rw != null)
+                {
+                    h.Patch(rw, prefix: patch);
+                    Log.Message($"[AnotherTweaks] DropOneWithControl Initialized");
+                }
+                else
+                {
+                    Log.Error($"[AnotherTweaks] DropOneWithControl Can't find method for patch");
+                }
+            }
+
             Log.Message($"[AnotherTweaks] Initialized");
         }
 
