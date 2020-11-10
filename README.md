@@ -4,7 +4,7 @@ _Mod can work with **4M Mehni's Misc Modifications, TD Enhancement Pack**. All p
 
 All this tweaks can be enabled/disabled in mod settings.
 
-* Dwarfed pawns attack hives (in vanilla default enabled, with mod disabled) <- mod HiveAttackTargetDisabler, checkbox in mod settings
+* Drafted pawns attack hives (in vanilla enadbled by default) <- mod HiveAttackTargetDisabler, checkbox in mod settings
 
 * Shift + Click for MASS assign areas for Colonists and Animals (like in mod AnimalTab)
 ![](https://i.imgur.com/nJ3pegL.png)

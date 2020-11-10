@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-	<HiveAttackTarget>Pawns can attack hives</HiveAttackTarget>
+	<HiveAttackTarget>Drafted pawns attack hives(in vanilla enadbled by default)</HiveAttackTarget>
 	<BetterHostileReadouts>Show names for hostile animals</BetterHostileReadouts>
 	<SkillArrows>Show up/down skill indicators</SkillArrows>
 	<ResearchingArrow>Show active research indicator</ResearchingArrow>
