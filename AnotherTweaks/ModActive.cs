@@ -11,7 +11,7 @@ namespace AnotherTweaks
             get
             {
                 if (_tdEnhancmentPack == null)
-                    _tdEnhancmentPack = LoadedModManager.RunningModsListForReading.Any(x => x.Name.Equals("TD Enhancement Pack"));
+                    _tdEnhancmentPack = LoadedModManager.RunningModsListForReading.Any(x => x.Name.Equals("TD Enhancement Pack") || x.Name.Equals("TD Enhancement Pack - Dev Build"));
                 return (bool) _tdEnhancmentPack;
             }
         }

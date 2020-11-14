@@ -1,10 +1,13 @@
 # RW-AnotherTweaks
 
-_Mod can work with **4M Mehni's Misc Modifications, TD Enhancement Pack**. All patches pasted from this mods will not be applied!_
+_Mod can work with 4M Mehni's Misc Modifications, TD Enhancement Pack.
+Settings from 4M Mehni's Misc Modifications and TD Enhancement Pack will be used if they are installed!_
 
 All this tweaks can be enabled/disabled in mod settings.
 
 * Drafted pawns attack hives (in vanilla enadbled by default) <- mod HiveAttackTargetDisabler, checkbox in mod settings
+
+* Hold Ctrl to drop one item from the pawn inventory instead of a stack
 
 * Shift + Click for MASS assign areas for Colonists and Animals (like in mod AnimalTab)
 ![](https://i.imgur.com/nJ3pegL.png)

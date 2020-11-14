@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 	<HiveAttackTarget>Поселенцы "В призыве" атакуют ульи(в ваниле по умолчанию включено)</HiveAttackTarget>
-	<DropOneWithControl>Выбрасывайте вещи из инвертаря с зажатым Ctrl по одной штуке</DropOneWithControl>
+	<DropOneWithControl>Удерживайте Ctrl, чтобы выбрасывать по одному предмету из инвентаря, вместо стака</DropOneWithControl>
 	<BetterHostileReadouts>Показывать имя враждебных животных</BetterHostileReadouts>
 	<SkillArrows>Показывать индикаторы роста/падения скилла</SkillArrows>
 	<ResearchingArrow>Показывать индикатор активного исследования</ResearchingArrow>
