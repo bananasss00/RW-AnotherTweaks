@@ -7,6 +7,7 @@ using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace AnotherTweaks
 {
@@ -21,6 +22,34 @@ namespace AnotherTweaks
             var h = new Harmony("pirateby.AnotherTweaks");
             h.PatchAll();
 
+            var sb = new StringBuilder();
+            sb.Append($"[AnotherTweaks] Tweaks: ");
+            if (ModActive.CoreSK)
+            {
+                var timeControls = AccessTools.Method($"SK.GlobalControlsUtility_DoTimespeedControls_Patch:Postfix");
+                if (timeControls != null)
+                {
+                    h.Patch(timeControls, prefix: new HarmonyMethod(typeof(TPSPatch), nameof(TPSPatch.Prefix)));
+                }
+                sb.Append($"CoreSK ");
+            }
+
+            if (!ModActive.ShareTheLoad)
+            {
+                h.Patch(AccessTools.Method(typeof(ItemAvailability), nameof(ItemAvailability.ThingsAvailableAnywhere)), prefix: new HarmonyMethod(typeof(DeliverAsMuchAsPossible), nameof(DeliverAsMuchAsPossible.Prefix)));
+                h.Patch(AccessTools.Method(typeof(WorkGiver_ConstructDeliverResources), nameof(WorkGiver_ConstructDeliverResources.ResourceDeliverJobFor)), transpiler: new HarmonyMethod(typeof(BreakToContinue_Patch), nameof(BreakToContinue_Patch.Transpiler)));
+                sb.Append($"ShareTheLoad ");
+            }
+
+            if (!ModActive.ReplaceStuff)
+            {
+                h.Patch(AccessTools.Method(typeof(TouchPathEndModeUtility), nameof(TouchPathEndModeUtility.IsCornerTouchAllowed)), prefix: new HarmonyMethod(typeof(CornerBuildable), nameof(CornerBuildable.Prefix)));
+                h.Patch(AccessTools.Method(typeof(TouchPathEndModeUtility), nameof(TouchPathEndModeUtility.MakesOccupiedCellsAlwaysReachableDiagonally)), prefix: new HarmonyMethod(typeof(CornerMineableOkay), nameof(CornerMineableOkay.Prefix)));
+                h.Patch(AccessTools.Method(typeof(GenPath), nameof(GenPath.ShouldNotEnterCell)), postfix: new HarmonyMethod(typeof(ShouldNotEnterCellPatch), nameof(ShouldNotEnterCellPatch.Postfix)));
+                h.Patch(AccessTools.Method(typeof(HaulAIUtility), nameof(HaulAIUtility.TryFindSpotToPlaceHaulableCloseTo)), postfix: new HarmonyMethod(typeof(TryFindSpotToPlaceHaulableCloseToPatch), nameof(TryFindSpotToPlaceHaulableCloseToPatch.Postfix)));
+                sb.Append($"ReplaceStuff ");
+            }
+
             if (!ModActive.TDEnhancmentPack)
             {
                 h.Patch(AccessTools.Method(typeof(SkillUI), nameof(SkillUI.DrawSkill), new Type[] { typeof(SkillRecord), typeof(Rect), typeof(SkillUI.SkillDrawMode), typeof(string) }),
@@ -31,7 +60,7 @@ namespace AnotherTweaks
                 h.Patch(AccessTools.Method(typeof(MainButtonWorker), nameof(MainButtonWorker.DoButton)), postfix: new HarmonyMethod(typeof(ResearchingIndicator), nameof(ResearchingIndicator.Postfix)));
                 
                 h.Patch(AccessTools.Method(typeof(ResearchManager), nameof(ResearchManager.ResearchPerformed)), postfix: new HarmonyMethod(typeof(ResearchPerformed), nameof(ResearchPerformed.Postfix)));
-                Log.Message($"[AnotherTweaks] TDEnhancmentPack tweaks initialized");
+                sb.Append($"TDEnhancmentPack ");
             }
 
             if (!ModActive.MehniMiscModifications)
@@ -44,8 +73,10 @@ namespace AnotherTweaks
                         nameof(Dialog_AssignBuildingOwner.DoWindowContents)),
                     transpiler: new HarmonyMethod(typeof(MehniMiscModifications),
                         nameof(MehniMiscModifications.DoWindowContents_Transpiler)));
-                Log.Message($"[AnotherTweaks] MehniMiscModifications tweaks initialized");
+                sb.Append($"MehniMiscModifications ");
             }
+            sb.Append($"initialized");
+            Log.Message(sb.ToString());
 
             // DropOneWithControl
             {

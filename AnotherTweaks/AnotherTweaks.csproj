@@ -304,6 +304,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnotherTweaks.cs" />
+    <Compile Include="CoreSK_Zeon_Patch.cs" />
+    <Compile Include="CornerBuildable.cs" />
+    <Compile Include="DeliverAsMuchAsPossible.cs" />
     <Compile Include="DropOneWithControl.cs" />
     <Compile Include="MehniMiscModifications.cs" />
     <Compile Include="HiveAttackTargetDisabler.cs" />
@@ -313,6 +316,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="TDEnhancmentPack.cs" />
     <Compile Include="Textures.cs" />
+    <Compile Include="TPSPatch.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
