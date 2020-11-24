@@ -22,6 +22,13 @@ namespace AnotherTweaks
             var h = new Harmony("pirateby.AnotherTweaks");
             h.PatchAll();
 
+            // HandleBlockingPlants
+            {
+                var transpiler = new HarmonyMethod(typeof(HandleBlockingPlants), nameof(HandleBlockingPlants.HandleBlockingThingJob));
+                h.Patch(AccessTools.Method(typeof(RoofUtility), nameof(RoofUtility.CanHandleBlockingThing)), transpiler: transpiler);
+                h.Patch(AccessTools.Method(typeof(GenConstruct), nameof(GenConstruct.HandleBlockingThingJob)), transpiler: transpiler);
+            }
+
             var sb = new StringBuilder();
             sb.Append($"[AnotherTweaks] Tweaks: ");
             if (ModActive.CoreSK)

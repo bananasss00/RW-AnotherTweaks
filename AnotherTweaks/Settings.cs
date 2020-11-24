@@ -18,6 +18,7 @@ namespace AnotherTweaks
         }
 
 	    public bool HiveAttackTarget = false;
+	    public bool CutPlantsBeforeBuilding = true;
 	    public bool CoreSK_ShowTPSInRegularGame = false;
 	    public bool CoreSK_ShowRaidPoints = true;
 	    public bool ShareTheLoad_DeliverAsMuchAsYouCan = false;
@@ -49,6 +50,7 @@ namespace AnotherTweaks
             GUI.color = defColor;
 
             modOptions.CheckboxLabeled("HiveAttackTarget".Translate(), ref HiveAttackTarget);
+            modOptions.CheckboxLabeled("CutPlantsBeforeBuilding".Translate(), ref CutPlantsBeforeBuilding);
             modOptions.Label("DropOneWithControl".Translate());
 
             if (!ModActive.ShareTheLoad)
@@ -97,6 +99,7 @@ namespace AnotherTweaks
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref HiveAttackTarget, "HiveAttackTarget", false);
+			Scribe_Values.Look(ref CutPlantsBeforeBuilding, "CutPlantsBeforeBuilding", true);
 			Scribe_Values.Look(ref CoreSK_ShowTPSInRegularGame, "CoreSK_ShowTPSInRegularGame", false);
 			Scribe_Values.Look(ref CoreSK_ShowRaidPoints, "CoreSK_ShowRaidPoints", true);
 			Scribe_Values.Look(ref ShareTheLoad_DeliverAsMuchAsYouCan, "ShareTheLoad_DeliverAsMuchAsYouCan", false);

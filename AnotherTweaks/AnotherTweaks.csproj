@@ -308,6 +308,7 @@
     <Compile Include="CornerBuildable.cs" />
     <Compile Include="DeliverAsMuchAsPossible.cs" />
     <Compile Include="DropOneWithControl.cs" />
+    <Compile Include="HandleBlockingPlants.cs" />
     <Compile Include="MehniMiscModifications.cs" />
     <Compile Include="HiveAttackTargetDisabler.cs" />
     <Compile Include="ModActive.cs" />
