@@ -15,7 +15,7 @@ namespace AnotherTweaks
         {
             var raidPoints = __result.ToList();
 
-            for (int i = 11000; i <= 30000; i += 10000)
+            for (int i = 11000; i <= 30000; i += 1000)
                 raidPoints.Add(i);
 
             __result = raidPoints;
