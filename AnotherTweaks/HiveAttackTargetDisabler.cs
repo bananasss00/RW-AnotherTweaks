@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace AnotherTweaks
 {
-    [HarmonyPatch(typeof(Hive), nameof(Hive.ThreatDisabled))]
+    //[HarmonyPatch(typeof(Hive), nameof(Hive.ThreatDisabled))]
     public class HiveAttackTargetDisabler
     {
         [HarmonyPrefix]

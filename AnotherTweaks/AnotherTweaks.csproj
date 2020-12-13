@@ -306,7 +306,9 @@
     <Compile Include="AnotherTweaks.cs" />
     <Compile Include="CoreSK_Zeon_Patch.cs" />
     <Compile Include="CornerBuildable.cs" />
+    <Compile Include="DebugWindowsOpener_DevToolStarterOnGUI_Patch.cs" />
     <Compile Include="DeliverAsMuchAsPossible.cs" />
+    <Compile Include="MoreDevRaidpoints.cs" />
     <Compile Include="DropOneWithControl.cs" />
     <Compile Include="HandleBlockingPlants.cs" />
     <Compile Include="MehniMiscModifications.cs" />
@@ -316,6 +318,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="TDEnhancmentPack.cs" />
+    <Compile Include="TransferableSorters.cs" />
     <Compile Include="Textures.cs" />
     <Compile Include="TPSPatch.cs" />
   </ItemGroup>

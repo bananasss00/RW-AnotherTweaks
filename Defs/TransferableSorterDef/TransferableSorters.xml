@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TransferableSorterDef>
+    <defName>AT_TC_armorRatingSharp</defName>
+    <label>Armor: Sharp</label>
+    <comparerClass>AnotherTweaks.TransferableComparer_ArmorRating_Sharp</comparerClass>
+  </TransferableSorterDef>
+  
+  <TransferableSorterDef>
+    <defName>AT_TC_armorRatingBlunt</defName>
+    <label>Armor: Blunt</label>
+    <comparerClass>AnotherTweaks.TransferableComparer_ArmorRating_Blunt</comparerClass>
+  </TransferableSorterDef>
+  
+  <TransferableSorterDef>
+    <defName>AT_TC_weaponDPS</defName>
+    <label>Weapon: DPS</label>
+    <comparerClass>AnotherTweaks.TransferableComparer_DPS</comparerClass>
+  </TransferableSorterDef>
+  
+  <TransferableSorterDef>
+    <defName>AT_TC_nutritionPerMarketValue</defName>
+    <label>Nutrition per market value</label>
+    <comparerClass>AnotherTweaks.TransferableComparer_NutritionPerMarketValue</comparerClass>
+  </TransferableSorterDef>
+  
+</Defs>
