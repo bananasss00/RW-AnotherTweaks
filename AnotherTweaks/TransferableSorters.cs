@@ -112,4 +112,20 @@ namespace AnotherTweaks
             return th.GetStatValue(StatDefOf.Nutrition) / th.MarketValue;
         }
     }
+
+    public class TransferableComparer_SellCount : TransferableComparer
+    {
+        public override int Compare(Transferable lhs, Transferable rhs)
+        {
+            return lhs.GetMinimumToTransfer().CompareTo(rhs.GetMinimumToTransfer()); // Descending
+        }
+    }
+
+    public class TransferableComparer_BuyCount : TransferableComparer
+    {
+        public override int Compare(Transferable lhs, Transferable rhs)
+        {
+            return -lhs.GetMaximumToTransfer().CompareTo(rhs.GetMaximumToTransfer()); // Descending
+        }
+    }
 }

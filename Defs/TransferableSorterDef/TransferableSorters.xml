@@ -25,4 +25,16 @@
     <comparerClass>AnotherTweaks.TransferableComparer_NutritionPerMarketValue</comparerClass>
   </TransferableSorterDef>
   
+  <TransferableSorterDef>
+    <defName>AT_TC_sellCount</defName>
+    <label>The quantity that the trader has</label>
+    <comparerClass>AnotherTweaks.TransferableComparer_SellCount</comparerClass>
+  </TransferableSorterDef>
+  
+  <TransferableSorterDef>
+    <defName>AT_TC_buyCount</defName>
+    <label>The quantity that the colony has</label>
+    <comparerClass>AnotherTweaks.TransferableComparer_BuyCount</comparerClass>
+  </TransferableSorterDef>
+  
 </Defs>
