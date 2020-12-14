@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
+using HugsLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -11,6 +12,20 @@ using Verse.AI;
 
 namespace AnotherTweaks
 {
+    public class HugsLoadStages : ModBase
+    {
+        protected override bool HarmonyAutoPatch { get; } = false;
+
+        public override void DefsLoaded()
+        {
+            if (ModActive.CoreSK)
+            {
+                int maxRaidCount = AnotherTweaks.Settings.Get().CoreSK_MaxRaidCount;
+                if (maxRaidCount > 10) CoreSK_Utils.Set_Config_MaxRaidCount(maxRaidCount);
+            }
+        }
+    }
+
     [StaticConstructorOnStartup]
     public class AnotherTweaksMod : Mod
     {
