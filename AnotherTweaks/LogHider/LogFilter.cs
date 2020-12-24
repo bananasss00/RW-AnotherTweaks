@@ -82,9 +82,9 @@ namespace AnotherTweaks
 
         public void UpdateHashes()
         {
-            ErrorHashFilters = _logsHided.Where(l => l.type == LogMessageType.Error).Select(l => l.GetHashCode()).ToArray();
-            WarningHashFilters = _logsHided.Where(l => l.type == LogMessageType.Warning).Select(l => l.GetHashCode()).ToArray();
-            MessageHashFilters = _logsHided.Where(l => l.type == LogMessageType.Message).Select(l => l.GetHashCode()).ToArray();
+            ErrorHashFilters = _logsHided.Where(l => l.type == LogMessageType.Error).Select(l => l.text.GetHashCode()).ToArray();
+            WarningHashFilters = _logsHided.Where(l => l.type == LogMessageType.Warning).Select(l => l.text.GetHashCode()).ToArray();
+            MessageHashFilters = _logsHided.Where(l => l.type == LogMessageType.Message).Select(l => l.text.GetHashCode()).ToArray();
             
             if (!String.IsNullOrWhiteSpace(errorContain))
                 ErrorContainFilters = errorContain.Split(new[] {"||"}, StringSplitOptions.RemoveEmptyEntries);

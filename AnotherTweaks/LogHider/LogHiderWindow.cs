@@ -10,6 +10,7 @@ namespace AnotherTweaks
 {
     public class LogHiderWindow : Window
     {
+        private static readonly Color SelectedColor = new Color(0.5f, 1f, 0.5f, 1f);
         private LogMessageType _logMessageType;
         private Vector2 _scrollPosition = new Vector2(0, 0);
         private List<LogMessageHided> _logMessages;
@@ -50,18 +51,31 @@ namespace AnotherTweaks
 
             Widgets.CheckboxLabeled(chkEnabledRect, "AnotherTweaks.LogFilter.Enabled".Translate(), ref Settings.Get().LogFilter.enabled);
             _searchBuf = Widgets.TextEntryLabeled(teSearchRect, "AnotherTweaks.LogFilter.Search".Translate(), _searchBuf);
+
+            Color color = GUI.color;
+            if (_logMessageType == LogMessageType.Error)
+                GUI.color = SelectedColor;
             if (Widgets.ButtonText(btnErrorsRect, "AnotherTweaks.LogFilter.ErrorsTab".Translate()))
             {
                 _logMessageType = LogMessageType.Error;
             }
+            GUI.color = color;
+
+            if (_logMessageType == LogMessageType.Warning)
+                GUI.color = SelectedColor;
             if (Widgets.ButtonText(btnWarningsRect, "AnotherTweaks.LogFilter.WarningsTab".Translate()))
             {
                 _logMessageType = LogMessageType.Warning;
             }
+            GUI.color = color;
+
+            if (_logMessageType == LogMessageType.Message)
+                GUI.color = SelectedColor;
             if (Widgets.ButtonText(btnMessagesRect, "AnotherTweaks.LogFilter.MessagesTab".Translate()))
             {
                 _logMessageType = LogMessageType.Message;
             }
+            GUI.color = color;
 
             var cfg = Settings.Get().LogFilter;
             IEnumerable<LogMessageHided> containFilteredItems = null;
