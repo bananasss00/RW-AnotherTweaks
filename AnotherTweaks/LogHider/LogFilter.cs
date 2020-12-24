@@ -109,6 +109,7 @@ namespace AnotherTweaks
             
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
             {
+                if (_logsHided == null) _logsHided = new List<LogMessageHided>();
                 UpdateHashes();
             }
         }
