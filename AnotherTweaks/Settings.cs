@@ -30,6 +30,7 @@ namespace AnotherTweaks
 	    public bool BetterHostileReadouts = true;
 	    public bool SkillArrows = true;
 	    public bool ResearchingArrow = true;
+        public List<LogMessageExposable> LogsHided = new List<LogMessageExposable>();
 
         private string _bufferMaxRaidCount, _bufferDevToolsPositionX, _bufferDevToolsPositionY;
 
@@ -124,6 +125,7 @@ namespace AnotherTweaks
 			Scribe_Values.Look(ref BetterHostileReadouts, "BetterHostileReadouts", true);
 			Scribe_Values.Look(ref SkillArrows, "SkillArrows", true);
 			Scribe_Values.Look(ref ResearchingArrow, "ResearchingArrow", true);
+			Scribe_Deep.Look(ref LogsHided, "LogsHided");
         }
 	}
 }

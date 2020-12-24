@@ -79,6 +79,7 @@
     <Compile Include="CornerBuildable.cs" />
     <Compile Include="DebugWindowsOpener_DevToolStarterOnGUI_Patch.cs" />
     <Compile Include="DeliverAsMuchAsPossible.cs" />
+    <Compile Include="LogHider\MainWindow.cs" />
     <Compile Include="MoreDevRaidpoints.cs" />
     <Compile Include="DropOneWithControl.cs" />
     <Compile Include="HandleBlockingPlants.cs" />
@@ -93,5 +94,6 @@
     <Compile Include="Textures.cs" />
     <Compile Include="TPSPatch.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
