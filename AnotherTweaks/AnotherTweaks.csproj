@@ -79,6 +79,7 @@
     <Compile Include="CornerBuildable.cs" />
     <Compile Include="DebugWindowsOpener_DevToolStarterOnGUI_Patch.cs" />
     <Compile Include="DeliverAsMuchAsPossible.cs" />
+    <Compile Include="LogHider\LogExtended.cs" />
     <Compile Include="LogHider\LogFilter.cs" />
     <Compile Include="LogHider\LogMessageHided.cs" />
     <Compile Include="LogHider\LogHiderWindow.cs" />

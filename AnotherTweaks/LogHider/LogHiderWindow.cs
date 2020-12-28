@@ -114,6 +114,7 @@ namespace AnotherTweaks
                 Rect chkItemRect = new Rect(x: 0, y: y, width: viewRect.width, height: controlHeight);
                 Widgets.CheckboxLabeled(chkItemRect, item.text, ref item.show);
                 TooltipHandler.TipRegion(chkItemRect, item.text);
+                Widgets.DrawHighlightIfMouseover(chkItemRect);
                 y += controlHeight/*chkItemRect.yMax*/;
             }
             Widgets.EndScrollView();

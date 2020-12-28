@@ -37,6 +37,8 @@ namespace AnotherTweaks
             var h = new Harmony("pirateby.AnotherTweaks");
             h.PatchAll();
 
+            LogExtended.Patch(h);
+
             // HandleBlockingPlants
             {
                 var transpiler = new HarmonyMethod(typeof(HandleBlockingPlants), nameof(HandleBlockingPlants.HandleBlockingThingJob));

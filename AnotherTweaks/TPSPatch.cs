@@ -43,9 +43,11 @@ namespace AnotherTweaks
             }
             Rect rect = new Rect(leftX - 20f, curBaseY - 26f, width + 20f - 7f, 26f);
             Text.Anchor = TextAnchor.MiddleRight;
-
+			
+			Map map = Find.CurrentMap;
+            var raidPoints = map != null ? Mathf.Round(StorytellerUtility.DefaultThreatPointsNow(map)) : 0;
             string text = Settings.Get().CoreSK_ShowRaidPoints
-                ? $"TPS: {TPSActual}({num}) P: {Mathf.Round(StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap))}"
+                ? $"TPS: {TPSActual}({num}) P: {raidPoints}"
                 : $"TPS: {TPSActual}({num})";
 
             Widgets.Label(rect, text);
