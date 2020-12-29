@@ -44,8 +44,13 @@ namespace AnotherTweaks
             Rect rect = new Rect(leftX - 20f, curBaseY - 26f, width + 20f - 7f, 26f);
             Text.Anchor = TextAnchor.MiddleRight;
 			
-			Map map = Find.CurrentMap;
-            var raidPoints = map != null ? Mathf.Round(StorytellerUtility.DefaultThreatPointsNow(map)) : 0;
+            var gameTick = Find.TickManager.TicksGame;
+            if (gameTick >= newGameTick)
+            {
+                Map map = Find.CurrentMap;
+                raidPoints = map != null ? Mathf.Round(StorytellerUtility.DefaultThreatPointsNow(map)) : 0;
+                newGameTick = Find.TickManager.TicksGame + 2000;
+            }
             string text = Settings.Get().CoreSK_ShowRaidPoints
                 ? $"TPS: {TPSActual}({num}) P: {raidPoints}"
                 : $"TPS: {TPSActual}({num})";
@@ -60,5 +65,9 @@ namespace AnotherTweaks
         private static int PrevTicks = -1;
 
         private static int TPSActual = 0;
+
+        private static int newGameTick = 0;
+
+        private static float raidPoints = 0;
     }
 }
