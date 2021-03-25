@@ -78,6 +78,7 @@
     <Compile Include="CoreSK_Zeon_Patch.cs" />
     <Compile Include="CornerBuildable.cs" />
     <Compile Include="DebugWindowsOpener_DevToolStarterOnGUI_Patch.cs" />
+    <Compile Include="DefaultIngredientSearchRadius.cs" />
     <Compile Include="DeliverAsMuchAsPossible.cs" />
     <Compile Include="LogHider\LogExtended.cs" />
     <Compile Include="LogHider\LogFilter.cs" />

@@ -22,6 +22,7 @@ namespace AnotherTweaks
 	    public bool DevToolsWithHoldShift = false;
 	    public int DevToolsPositionX = 0;
 	    public int DevToolsPositionY = 0;
+        public float IngredientSearchRadius = 25f;
 	    public bool CoreSK_ShowTPSInRegularGame = false;
 	    public bool CoreSK_ShowRaidPoints = true;
 	    public int CoreSK_MaxRaidCount = 130;
@@ -65,6 +66,19 @@ namespace AnotherTweaks
             modOptions.CheckboxLabeled("DevToolsWithHoldShift".Translate(), ref DevToolsWithHoldShift);
             modOptions.TextFieldNumericLabeled("DevToolsPositionX".Translate(), ref DevToolsPositionX, ref _bufferDevToolsPositionX);
             modOptions.TextFieldNumericLabeled("DevToolsPositionY".Translate(), ref DevToolsPositionY, ref _bufferDevToolsPositionY);
+            // IngredientSearchRadius
+            {
+                string str2 = "DefaultIngredientSearchRadius".Translate();
+                string str3 = (IngredientSearchRadius == 999f)
+                    ? "Unlimited".TranslateSimple()
+                    : IngredientSearchRadius.ToString("F0");
+                modOptions.Label(str2 + ": " + str3);
+                IngredientSearchRadius = modOptions.Slider((IngredientSearchRadius > 100f) ? 100f : IngredientSearchRadius, 3f, 100f);
+                if (IngredientSearchRadius >= 100f)
+                {
+                    IngredientSearchRadius = 999f;
+                }
+            }
             modOptions.Label("DropOneWithControl".Translate());
 
             if (!ModActive.ShareTheLoad)
@@ -122,6 +136,7 @@ namespace AnotherTweaks
 			Scribe_Values.Look(ref DevToolsWithHoldShift, "DevToolsWithHoldShift", false);
 			Scribe_Values.Look(ref DevToolsPositionX, "DevToolsPositionX", 0);
 			Scribe_Values.Look(ref DevToolsPositionY, "DevToolsPositionY", 0);
+			Scribe_Values.Look(ref IngredientSearchRadius, "IngredientSearchRadius", 25f);
 			Scribe_Values.Look(ref CoreSK_ShowTPSInRegularGame, "CoreSK_ShowTPSInRegularGame", false);
 			Scribe_Values.Look(ref CoreSK_ShowRaidPoints, "CoreSK_ShowRaidPoints", true);
 			Scribe_Values.Look(ref CoreSK_MaxRaidCount, "CoreSK_MaxRaidCount", 0);
