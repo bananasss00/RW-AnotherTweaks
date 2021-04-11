@@ -45,8 +45,8 @@
       <HintPath>..\..\..\..\2-Hardcore-SK\Mods\Core_SK\Assemblies\Core_SK.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="HugsLib">
-      <HintPath>..\..\..\#PACKAGES_1.2#\HugsLib.dll</HintPath>
+    <Reference Include="HugsLib_publicized">
+      <HintPath>..\..\..\#PACKAGES_1.2#\publicized_assemblies\HugsLib_publicized.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -80,6 +80,7 @@
     <Compile Include="DebugWindowsOpener_DevToolStarterOnGUI_Patch.cs" />
     <Compile Include="DefaultIngredientSearchRadius.cs" />
     <Compile Include="DeliverAsMuchAsPossible.cs" />
+    <Compile Include="HugsSettingsSearchBox.cs" />
     <Compile Include="LogHider\LogExtended.cs" />
     <Compile Include="LogHider\LogFilter.cs" />
     <Compile Include="LogHider\LogMessageHided.cs" />

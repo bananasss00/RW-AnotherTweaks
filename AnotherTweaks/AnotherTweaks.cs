@@ -14,7 +14,7 @@ namespace AnotherTweaks
 {
     public class HugsLoadStages : ModBase
     {
-        protected override bool HarmonyAutoPatch { get; } = false;
+        public override bool HarmonyAutoPatch { get; } = false;
 
         public override void DefsLoaded()
         {
