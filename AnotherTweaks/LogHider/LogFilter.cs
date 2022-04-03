@@ -9,28 +9,28 @@ namespace AnotherTweaks
     [HarmonyPatch(typeof(Log))]
     public static class Log_Patch
     {
-        [HarmonyPatch(nameof(Log.Error))]
+        [HarmonyPatch(nameof(Log.Error), new[] { typeof(string) })]
         [HarmonyPrefix]
         [HarmonyPriority(Priority.First)]
-        public static bool Error(string text, bool ignoreStopLoggingLimit)
+        public static bool Error(string text)
         {
             var cfg = Settings.Get().LogFilter;
             if (!cfg.enabled || !cfg.ErrorContainFilters.ContainFilter(text) && !cfg.ErrorHashFilters.Contains(text.GetHashCode())) return true;
             return false;
         }
-        [HarmonyPatch(nameof(Log.Warning))]
+        [HarmonyPatch(nameof(Log.Warning), new[] { typeof(string) })]
         [HarmonyPrefix]
         [HarmonyPriority(Priority.First)]
-        public static bool Warning(string text, bool ignoreStopLoggingLimit)
+        public static bool Warning(string text)
         {
             var cfg = Settings.Get().LogFilter;
             if (!cfg.enabled || !cfg.WarningContainFilters.ContainFilter(text) && !cfg.WarningHashFilters.Contains(text.GetHashCode())) return true;
             return false;
         }
-        [HarmonyPatch(nameof(Log.Message))]
+        [HarmonyPatch(nameof(Log.Message), new[] { typeof(string) })]
         [HarmonyPrefix]
         [HarmonyPriority(Priority.First)]
-        public static bool Message(string text, bool ignoreStopLoggingLimit)
+        public static bool Message(string text)
         {
             var cfg = Settings.Get().LogFilter;
             if (!cfg.enabled || !cfg.MessageContainFilters.ContainFilter(text) && !cfg.MessageHashFilters.Contains(text.GetHashCode())) return true;

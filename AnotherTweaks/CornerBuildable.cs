@@ -14,12 +14,12 @@ namespace AnotherTweaks
 	//[HarmonyPatch(typeof(TouchPathEndModeUtility), "IsCornerTouchAllowed")]
 	class CornerBuildable
 	{
-		public static bool Prefix(ref bool __result, int cornerX, int cornerZ, Map map)
+		public static bool Prefix(ref bool __result, int cornerX, int cornerZ, PathingContext pc)
 		{
 			if (!Settings.Get().ReplaceStuff_CornerBuildable) return true;
 
 			//public static bool IsCornerTouchAllowed(int cornerX, int cornerZ, int adjCardinal1X, int adjCardinal1Z, int adjCardinal2X, int adjCardinal2Z, Map map)
-			if (map.thingGrid.ThingsAt(new IntVec3(cornerX, 0, cornerZ))
+			if (pc.map.thingGrid.ThingsAt(new IntVec3(cornerX, 0, cornerZ))
 				.Any(t => TouchPathEndModeUtility.MakesOccupiedCellsAlwaysReachableDiagonally(t.def)))
 			{
 				__result = true;
