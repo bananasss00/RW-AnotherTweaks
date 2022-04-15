@@ -42,7 +42,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Core_SK">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\_publicize\Core_SK.dll</HintPath>
+      <HintPath>..\..\..\..\rw13_sv\Unpacked\Mods\Core_SK\Assemblies\Core_SK.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib_publicized">

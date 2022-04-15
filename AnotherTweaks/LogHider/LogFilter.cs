@@ -14,6 +14,8 @@ namespace AnotherTweaks
         [HarmonyPriority(Priority.First)]
         public static bool Error(string text)
         {
+            if (Scribe.mode != LoadSaveMode.Inactive)
+                return true;
             var cfg = Settings.Get().LogFilter;
             if (!cfg.enabled || !cfg.ErrorContainFilters.ContainFilter(text) && !cfg.ErrorHashFilters.Contains(text.GetHashCode())) return true;
             return false;
@@ -23,6 +25,8 @@ namespace AnotherTweaks
         [HarmonyPriority(Priority.First)]
         public static bool Warning(string text)
         {
+            if (Scribe.mode != LoadSaveMode.Inactive)
+                return true;
             var cfg = Settings.Get().LogFilter;
             if (!cfg.enabled || !cfg.WarningContainFilters.ContainFilter(text) && !cfg.WarningHashFilters.Contains(text.GetHashCode())) return true;
             return false;
@@ -32,6 +36,8 @@ namespace AnotherTweaks
         [HarmonyPriority(Priority.First)]
         public static bool Message(string text)
         {
+            if (Scribe.mode != LoadSaveMode.Inactive)
+                return true;
             var cfg = Settings.Get().LogFilter;
             if (!cfg.enabled || !cfg.MessageContainFilters.ContainFilter(text) && !cfg.MessageHashFilters.Contains(text.GetHashCode())) return true;
             return false;
