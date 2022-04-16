@@ -1,10 +1,11 @@
-﻿using Verse;
+﻿using System.Xml.Serialization;
+using Verse;
 
 namespace AnotherTweaks
 {
-    public class LogMessageHided : LogMessage, IExposable
+    public class LogMessageHided : LogMessage
     {
-        [Unsaved]
+        [XmlIgnore]
         public bool show;
 
         public LogMessageHided() : base(null)
@@ -23,14 +24,6 @@ namespace AnotherTweaks
 
         public LogMessageHided(LogMessageType type, string text, string stackTrace) : base(type, text, stackTrace)
         {
-        }
-
-        public void ExposeData()
-        {
-            Scribe_Values.Look(ref text, "text");
-            Scribe_Values.Look(ref type, "type");
-            //Scribe_Values.Look(ref repeats, "repeats");
-            //Scribe_Values.Look(ref stackTrace, "stackTrace");
         }
 
         public override int GetHashCode()

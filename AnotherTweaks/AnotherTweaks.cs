@@ -124,6 +124,9 @@ namespace AnotherTweaks
                 }
             }
 
+
+            Settings.Get().LogFilter = new LogFilter();
+            Settings.Get().LogFilter.Load();
             Log.Message($"[AnotherTweaks] Initialized");
         }
 

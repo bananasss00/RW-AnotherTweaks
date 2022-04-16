@@ -49,7 +49,9 @@ namespace AnotherTweaks
             Rect btnMessagesRect = new Rect(x: btnWarningsRect.xMax, y: btnErrorsRect.y, width: btnWidth, height: controlHeight);
             Rect teContainFilterRect = new Rect(x: 0, y: btnMessagesRect.yMax, width: rect.width, height: controlHeight);
 
-            Widgets.CheckboxLabeled(chkEnabledRect, "AnotherTweaks.LogFilter.Enabled".Translate(), ref Settings.Get().LogFilter.enabled);
+            bool enabled = Settings.Get().LogFilter.enabled;
+            Widgets.CheckboxLabeled(chkEnabledRect, "AnotherTweaks.LogFilter.Enabled".Translate(), ref enabled);
+            Settings.Get().LogFilter.enabled = enabled;
             _searchBuf = Widgets.TextEntryLabeled(teSearchRect, "AnotherTweaks.LogFilter.Search".Translate(), _searchBuf);
 
             Color color = GUI.color;

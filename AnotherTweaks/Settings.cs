@@ -145,12 +145,6 @@ namespace AnotherTweaks
 			Scribe_Values.Look(ref BetterHostileReadouts, "BetterHostileReadouts", true);
 			Scribe_Values.Look(ref SkillArrows, "SkillArrows", true);
 			Scribe_Values.Look(ref ResearchingArrow, "ResearchingArrow", true);
-			Scribe_Deep.Look(ref LogFilter, "LogFilter");
-
-            if (Scribe.mode == LoadSaveMode.PostLoadInit)
-            {
-                if (LogFilter == null) LogFilter = new LogFilter();
-            }
         }
 	}
 }
