@@ -42,7 +42,7 @@ namespace AnotherTweaks
         public override void DoWindowContents(Rect rect)
         {
             int btnWidth = 200;
-            Rect chkEnabledRect = new Rect(x: 0, y: 0f, width: rect.width, height: controlHeight);
+            Rect chkEnabledRect = new Rect(x: 0, y: 20f, width: rect.width, height: controlHeight);
             Rect teSearchRect = new Rect(x: 0, y: chkEnabledRect.yMax, width: rect.width, height: controlHeight);
             Rect btnErrorsRect = new Rect(x: 10f, y: teSearchRect.yMax, width: btnWidth, height: controlHeight);
             Rect btnWarningsRect = new Rect(x: btnErrorsRect.xMax, y: btnErrorsRect.y, width: btnWidth, height: controlHeight);

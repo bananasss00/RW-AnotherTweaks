@@ -48,8 +48,13 @@ namespace AnotherTweaks
                 if (s.StartsWith("!"))
                 {
                     string pattern = s.Substring(1);
-                    if (Regex.IsMatch(msg, pattern))
-                        return true;
+                    try
+                    {
+                        if (Regex.IsMatch(msg, pattern))
+                            return true;
+                    }
+                    catch {}
+                    
                     continue;
                 }
                 // str contain
@@ -64,11 +69,7 @@ namespace AnotherTweaks
         public static bool ContainFilter(this string filterWithDelimiter, string msg)
         {
             var filter = filterWithDelimiter.Split(new[] {"||"}, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var s in filter)
-            {
-                if (msg.Contains(s)) return true;
-            }
-            return false;
+            return filter.ContainFilter(msg);
         }
     }
 
