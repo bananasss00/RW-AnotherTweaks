@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml;
 using HarmonyLib;
 using Verse;
 using System.Xml.Serialization;
@@ -138,8 +139,10 @@ namespace AnotherTweaks
             {
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(LogFilter));
                 using (FileStream fs = new FileStream(SettingsFileName, FileMode.OpenOrCreate))
+                using (XmlTextReader reader = new XmlTextReader(fs))
                 {
-                    LogFilter filter = xmlSerializer.Deserialize(fs) as LogFilter;
+                    reader.Normalization = false; // prevent remove \r!
+                    LogFilter filter = xmlSerializer.Deserialize(reader) as LogFilter;
 
                     if (filter == null)
                         throw new Exception("Can't deserialize LogFilter");
