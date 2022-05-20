@@ -34,19 +34,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\0Harmony.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp_publicized">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Core_SK">
-      <HintPath>..\..\..\..\rw13_sv\Unpacked\Mods\Core_SK\Assemblies\Core_SK.dll</HintPath>
+    <Reference Include="Core_SK_publicized">
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\publicized_assemblies\Core_SK_publicized.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib_publicized">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\publicized_assemblies\HugsLib_publicized.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\publicized_assemblies\HugsLib_publicized.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -54,23 +54,23 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\UnityEngine.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\..\rw13_updating\#PACKAGES_1.3#\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath>D:\Games\Rimworld_R1.3-HSK-Release\3-MyPack\#packages1.3\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -78,6 +78,7 @@
     <Compile Include="AnotherTweaks.cs" />
     <Compile Include="CoreSK_Utils.cs" />
     <Compile Include="CoreSK_Zeon_Patch.cs" />
+    <Compile Include="CoreSK_Max4Speed.cs" />
     <Compile Include="CornerBuildable.cs" />
     <Compile Include="DebugActionBetterSearchBox.cs" />
     <Compile Include="DebugWindowsOpener_DevToolStarterOnGUI_Patch.cs" />

@@ -11,6 +11,12 @@ namespace AnotherTweaks
     {
         public static void Patch(Harmony h)
         {
+            if (ModActive.BetterLog)
+            {
+                Log.Message($"[AnotherTweaks] Mod active 'BetterLog'. Disable same feature...");
+                return;
+            }
+
             var doWindowContents = AccessTools.Method(typeof(EditWindow_Log), nameof(EditWindow_Log.DoWindowContents));
             var doMessagesListing = AccessTools.Method(typeof(EditWindow_Log), nameof(EditWindow_Log.DoMessagesListing));
             var selectLastMessage = AccessTools.Method(typeof(EditWindow_Log), nameof(EditWindow_Log.SelectLastMessage));

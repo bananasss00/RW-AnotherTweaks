@@ -5,7 +5,17 @@ namespace AnotherTweaks
 {
     public class ModActive
     {
-        private static bool? _tdEnhancmentPack, _mehniMiscModifications, _coreSk, _shareTheLoad, _replaceStuff;
+        private static bool? _tdEnhancmentPack, _mehniMiscModifications, _coreSk, _shareTheLoad, _replaceStuff, _betterLog;
+
+        public static bool BetterLog
+        {
+            get
+            {
+                if (_betterLog == null)
+                    _betterLog = LoadedModManager.RunningModsListForReading.Any(x => x.PackageId.Equals("bs.betterlog", StringComparison.CurrentCultureIgnoreCase));
+                return (bool)_betterLog;
+            }
+        }
 
         public static bool TDEnhancmentPack
         {

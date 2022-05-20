@@ -23,17 +23,18 @@ namespace AnotherTweaks
 	    public int DevToolsPositionX = 0;
 	    public int DevToolsPositionY = 0;
         public float IngredientSearchRadius = 25f;
-	    public bool CoreSK_ShowTPSInRegularGame = false;
+        public bool CoreSK_ShowTPSInRegularGame = false;
 	    public bool CoreSK_ShowRaidPoints = true;
 	    public int CoreSK_MaxRaidCount = 130;
-	    public bool ShareTheLoad_DeliverAsMuchAsYouCan = false;
+        public int CoreSK_Max4Speed = 900;
+        public bool ShareTheLoad_DeliverAsMuchAsYouCan = false;
 	    public bool ReplaceStuff_CornerBuildable = false;
 	    public bool BetterHostileReadouts = true;
 	    public bool SkillArrows = true;
 	    public bool ResearchingArrow = true;
         public LogFilter LogFilter = new LogFilter();
 
-        private string _bufferMaxRaidCount, _bufferDevToolsPositionX, _bufferDevToolsPositionY;
+        private string _bufferMaxRaidCount, _bufferDevToolsPositionX, _bufferDevToolsPositionY, _bufferMax4Speed;
 
         public void DoSettingsWindowContents(Rect rect)
 		{
@@ -55,6 +56,7 @@ namespace AnotherTweaks
                 int maxRaidCount = CoreSK_MaxRaidCount;
                 modOptions.TextFieldNumericLabeled("CoreSK_MaxRaidCount".Translate(), ref CoreSK_MaxRaidCount, ref _bufferMaxRaidCount);
                 if (CoreSK_MaxRaidCount != maxRaidCount && CoreSK_MaxRaidCount > 10) CoreSK_Utils.Set_Config_MaxRaidCount(CoreSK_MaxRaidCount);
+                modOptions.TextFieldNumericLabeled("CoreSK_Max4Speed".Translate(), ref CoreSK_Max4Speed, ref _bufferMax4Speed);
             }
 
             GUI.color = Color.yellow;
@@ -140,6 +142,7 @@ namespace AnotherTweaks
 			Scribe_Values.Look(ref CoreSK_ShowTPSInRegularGame, "CoreSK_ShowTPSInRegularGame", false);
 			Scribe_Values.Look(ref CoreSK_ShowRaidPoints, "CoreSK_ShowRaidPoints", true);
 			Scribe_Values.Look(ref CoreSK_MaxRaidCount, "CoreSK_MaxRaidCount", 0);
+			Scribe_Values.Look(ref CoreSK_Max4Speed, "CoreSK_Max4Speed", 900);
 			Scribe_Values.Look(ref ShareTheLoad_DeliverAsMuchAsYouCan, "ShareTheLoad_DeliverAsMuchAsYouCan", false);
 			Scribe_Values.Look(ref ReplaceStuff_CornerBuildable, "ReplaceStuff_CornerBuildable", true);
 			Scribe_Values.Look(ref BetterHostileReadouts, "BetterHostileReadouts", true);

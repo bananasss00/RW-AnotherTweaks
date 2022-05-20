@@ -55,6 +55,11 @@ namespace AnotherTweaks
                 {
                     h.Patch(timeControls, prefix: new HarmonyMethod(typeof(TPSPatch), nameof(TPSPatch.Prefix)));
                 }
+                var tickRate = AccessTools.Method($"SK.Patch_TickManager_TickRateMultiplier:TickRate");
+                if (tickRate != null)
+                {
+                    h.Patch(tickRate, postfix: new HarmonyMethod(typeof(CoreSK_Max4Speed), nameof(CoreSK_Max4Speed.Postfix)));
+                }
                 sb.Append($"CoreSK ");
             }
 
