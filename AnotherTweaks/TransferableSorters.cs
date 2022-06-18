@@ -128,4 +128,12 @@ namespace AnotherTweaks
             return -lhs.GetMaximumToTransfer().CompareTo(rhs.GetMaximumToTransfer()); // Descending
         }
     }
+
+    public class TransferableComparer_SellMarketValueAll : TransferableComparer
+    {
+        public override int Compare(Transferable lhs, Transferable rhs)
+        {
+            return (lhs.GetMinimumToTransfer() * lhs.AnyThing.MarketValue).CompareTo(rhs.GetMinimumToTransfer() * rhs.AnyThing.MarketValue); // Descending
+        }
+    }
 }
