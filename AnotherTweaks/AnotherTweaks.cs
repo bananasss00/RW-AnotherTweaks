@@ -60,6 +60,11 @@ namespace AnotherTweaks
                 {
                     h.Patch(tickRate, postfix: new HarmonyMethod(typeof(CoreSK_Max4Speed), nameof(CoreSK_Max4Speed.Postfix)));
                 }
+                var orbitalTraderArrivalSBT = AccessTools.Method($"SK.IncidentWorker_OrbitalTraderArrivalSBT:TryExecuteWorker");
+                if (orbitalTraderArrivalSBT != null)
+                {
+                    h.Patch(orbitalTraderArrivalSBT, transpiler: new HarmonyMethod(typeof(CoreSK_TradeTransponder_Patch), nameof(CoreSK_TradeTransponder_Patch.IncidentWorker_OrbitalTraderArrivalSBT_TryExecuteWorker)));
+                }
                 sb.Append($"CoreSK ");
             }
 

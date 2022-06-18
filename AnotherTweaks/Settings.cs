@@ -27,6 +27,7 @@ namespace AnotherTweaks
 	    public bool CoreSK_ShowRaidPoints = true;
 	    public int CoreSK_MaxRaidCount = 130;
         public int CoreSK_Max4Speed = 900;
+        public int CoreSK_MaxTradeshipsTransponder = 5;
         public bool ShareTheLoad_DeliverAsMuchAsYouCan = false;
 	    public bool ReplaceStuff_CornerBuildable = false;
 	    public bool BetterHostileReadouts = true;
@@ -34,7 +35,12 @@ namespace AnotherTweaks
 	    public bool ResearchingArrow = true;
         public LogFilter LogFilter = new LogFilter();
 
-        private string _bufferMaxRaidCount, _bufferDevToolsPositionX, _bufferDevToolsPositionY, _bufferMax4Speed;
+        // DEBUG
+        public bool OverrideRadePoints = false;
+        public int OverrideRadePointsValue = 10000;
+
+        private string _bufferMaxRaidCount, _bufferDevToolsPositionX, _bufferDevToolsPositionY, _bufferMax4Speed, _maxTradeshipsTransponder;
+        private string _bufferOverrideRadePointsValue;
 
         public void DoSettingsWindowContents(Rect rect)
 		{
@@ -57,6 +63,7 @@ namespace AnotherTweaks
                 modOptions.TextFieldNumericLabeled("CoreSK_MaxRaidCount".Translate(), ref CoreSK_MaxRaidCount, ref _bufferMaxRaidCount);
                 if (CoreSK_MaxRaidCount != maxRaidCount && CoreSK_MaxRaidCount > 10) CoreSK_Utils.Set_Config_MaxRaidCount(CoreSK_MaxRaidCount);
                 modOptions.TextFieldNumericLabeled("CoreSK_Max4Speed".Translate(), ref CoreSK_Max4Speed, ref _bufferMax4Speed);
+                modOptions.TextFieldNumericLabeled("CoreSK_MaxTradeshipsTransponder".Translate(), ref CoreSK_MaxTradeshipsTransponder, ref _maxTradeshipsTransponder);
             }
 
             GUI.color = Color.yellow;
@@ -117,7 +124,13 @@ namespace AnotherTweaks
             }
 
             modOptions.GapLine();
-
+            if (Prefs.DevMode)
+            {
+                modOptions.CheckboxLabeled("DEBUG: Override rade points", ref OverrideRadePoints);
+                modOptions.TextFieldNumericLabeled("DEBUG: Override rade points value", ref OverrideRadePointsValue, ref _bufferOverrideRadePointsValue);
+                modOptions.GapLine();
+            }
+            
             GUI.color = Color.cyan;
             modOptions.Label("AT_Credits".Translate());
             GUI.color = defColor;
@@ -143,6 +156,7 @@ namespace AnotherTweaks
 			Scribe_Values.Look(ref CoreSK_ShowRaidPoints, "CoreSK_ShowRaidPoints", true);
 			Scribe_Values.Look(ref CoreSK_MaxRaidCount, "CoreSK_MaxRaidCount", 0);
 			Scribe_Values.Look(ref CoreSK_Max4Speed, "CoreSK_Max4Speed", 900);
+			Scribe_Values.Look(ref CoreSK_MaxTradeshipsTransponder, "CoreSK_MaxTradeshipsTransponder", 5);
 			Scribe_Values.Look(ref ShareTheLoad_DeliverAsMuchAsYouCan, "ShareTheLoad_DeliverAsMuchAsYouCan", false);
 			Scribe_Values.Look(ref ReplaceStuff_CornerBuildable, "ReplaceStuff_CornerBuildable", true);
 			Scribe_Values.Look(ref BetterHostileReadouts, "BetterHostileReadouts", true);

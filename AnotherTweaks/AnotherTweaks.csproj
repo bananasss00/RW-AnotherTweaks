@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="AnotherTweaks.cs" />
     <Compile Include="CoreSK_Utils.cs" />
+    <Compile Include="CoreSK_Transponder_Patch.cs" />
     <Compile Include="CoreSK_Zeon_Patch.cs" />
     <Compile Include="CoreSK_Max4Speed.cs" />
     <Compile Include="CornerBuildable.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="LogHider\LogFilter.cs" />
     <Compile Include="LogHider\LogMessageHided.cs" />
     <Compile Include="LogHider\LogHiderWindow.cs" />
+    <Compile Include="OverrideRadePoints.cs" />
     <Compile Include="MoreDevRaidpoints.cs" />
     <Compile Include="DropOneWithControl.cs" />
     <Compile Include="HandleBlockingPlants.cs" />
