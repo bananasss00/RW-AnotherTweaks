@@ -129,11 +129,18 @@ namespace AnotherTweaks
         }
     }
 
+    [HotSwappable]
     public class TransferableComparer_SellMarketValueAll : TransferableComparer
     {
         public override int Compare(Transferable lhs, Transferable rhs)
         {
-            return (lhs.GetMinimumToTransfer() * lhs.AnyThing.MarketValue).CompareTo(rhs.GetMinimumToTransfer() * rhs.AnyThing.MarketValue); // Descending
+            bool isFormCaravan /* form caravan only? */ = lhs is TransferableOneWay && rhs is TransferableOneWay;
+
+            Func <Transferable, float> valueGetter = isFormCaravan
+                ? (Transferable tr) => -tr.GetMaximumToTransfer() * tr.AnyThing.MarketValue
+                : (Transferable tr) => tr.GetMinimumToTransfer() * tr.AnyThing.MarketValue;
+
+            return valueGetter(lhs).CompareTo(valueGetter(rhs)); // Descending
         }
     }
 }

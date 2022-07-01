@@ -36,5 +36,12 @@
 	  <Private>False</Private>
 	</Reference>
   </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="Core_SK">
+      <HintPath>H:\rw13\Mods\Core SK\Assemblies\Core_SK.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
 
 </Project>

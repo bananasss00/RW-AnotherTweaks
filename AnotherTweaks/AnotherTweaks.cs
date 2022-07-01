@@ -12,6 +12,11 @@ using Verse.AI;
 
 namespace AnotherTweaks
 {
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    public class HotSwappableAttribute : Attribute
+    {
+    }
+
     public class HugsLoadStages : ModBase
     {
         public override bool HarmonyAutoPatch { get; } = false;
