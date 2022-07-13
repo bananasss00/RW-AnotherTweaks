@@ -44,15 +44,28 @@ namespace AnotherTweaks
 
             LogExtended.Patch(h);
 
+            var sb = new StringBuilder();
+            sb.Append($"[AnotherTweaks] Initializing...");
+
             // HandleBlockingPlants
             {
                 var transpiler = new HarmonyMethod(typeof(HandleBlockingPlants), nameof(HandleBlockingPlants.HandleBlockingThingJob));
                 h.Patch(AccessTools.Method(typeof(RoofUtility), nameof(RoofUtility.CanHandleBlockingThing)), transpiler: transpiler);
                 h.Patch(AccessTools.Method(typeof(GenConstruct), nameof(GenConstruct.HandleBlockingThingJob)), transpiler: transpiler);
+
+                // Check/Remove ExpandedRoofing conflict patch with same feature
+                {
+                    var patch = AccessTools.Method("ExpandedRoofing.HarmonyPatches:FixClearBuildingArea");
+                    if (patch != null)
+                    {
+                        var blocksConstruction = AccessTools.Method(typeof(GenConstruct), nameof(GenConstruct.BlocksConstruction));
+                        LongEventHandler.QueueLongEvent(() => h.Unpatch(blocksConstruction, HarmonyPatchType.Transpiler, "rimworld.whyisthat.expandedroofing.main"), "Unpatch conflict ExpandedRoofing patch", false, null);
+                        sb.AppendLine($"- Disabled ExpandedRoofing patch");
+                    }
+                }
             }
 
-            var sb = new StringBuilder();
-            sb.Append($"[AnotherTweaks] Tweaks: ");
+            sb.Append($"Tweaks: ");
             if (ModActive.CoreSK)
             {
                 var timeControls = AccessTools.Method($"SK.GlobalControlsUtility_DoTimespeedControls_Patch:Postfix");
